@@ -39,6 +39,11 @@ def shapes_to_tensor(x: List[int], device: Optional[torch.device] = None) -> tor
 
 
 def check_if_dynamo_compiling():
+    # NOTE: The method is_compiling() is missing in the version of torch 2.0 packaged with 
+    #       nvcr.io/nvidia/l4t-ml:r35.2.1-py3.  Additionally, this method appears to always
+    #       output 'False'.
+    return False
+    
     if TORCH_VERSION >= (1, 14):
         from torch._dynamo import is_compiling
 
