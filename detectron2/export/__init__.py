@@ -12,8 +12,6 @@ try:
     # caffe2 is optional
 except ImportError:
     pass
-else:
-    from .api import *
 
 
 # TODO: Update ONNX Opset version and run tests when a newer PyTorch is supported
